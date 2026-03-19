@@ -9,5 +9,20 @@ def g(x):
     return math.atan(x) - 4/(x**2 + 1)
 
 
+# --- Bisection method ---
+def bisection(a, b, tol=1e-6):
+    while (b - a) / 2 > tol:
+        c = (a + b) / 2
+        if g(c) == 0:
+            return c
+        elif g(a) * g(c) < 0:
+            b = c
+        else:
+            a = c
+    return (a + b) / 2
+
+
 if __name__ == "__main__":
-    print("Funksjonene er definert. Klar for numerisk løsning.")
+    x_max = bisection(0, 5)
+
+    print(f"x-koordinat til toppunkt ≈ {x_max:.6f}")

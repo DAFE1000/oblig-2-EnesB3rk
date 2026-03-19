@@ -1,4 +1,5 @@
 import math
+import matplotlib.pyplot as plt
 
 # f(x)
 def f(x):
@@ -28,3 +29,18 @@ if __name__ == "__main__":
 
     print(f"x-koordinat til toppunkt ≈ {x_max:.6f}")
     print(f"Funksjonsverdi i toppunkt ≈ {y_max:.6f}")
+
+    # --- Plot ---
+    x_vals = [i * 0.1 for i in range(0, 100)]
+    y_vals = [f(x) for x in x_vals]
+
+    plt.plot(x_vals, y_vals, label="f(x)")
+    plt.scatter(x_max, y_max, label="Toppunkt")
+
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.title("Graf av funksjonen med toppunkt")
+    plt.legend()
+
+    plt.savefig("plot.png")
+    plt.show()

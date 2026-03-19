@@ -24,5 +24,7 @@ def bisection(a, b, tol=1e-6):
 
 if __name__ == "__main__":
     x_max = bisection(0, 5)
+    y_max = f(x_max)
 
     print(f"x-koordinat til toppunkt ≈ {x_max:.6f}")
+    print(f"Funksjonsverdi i toppunkt ≈ {y_max:.6f}")
